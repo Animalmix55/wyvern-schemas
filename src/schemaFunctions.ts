@@ -1,4 +1,4 @@
-import { BigNumber } from '@0x/utils';
+import { BigNumber } from 'bignumber.js';
 import * as ethABI from 'ethereumjs-abi';
 import { WyvernProtocol } from 'wyvern-js';
 import { WyvernAtomicizerContract } from 'wyvern-js/lib/abi_gen/wyvern_atomicizer';
