@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.encodeDefaultCall = exports.encodeBuy = exports.encodeAtomicizedBuy = exports.encodeAtomicizedSell = exports.encodeSell = exports.encodeCall = exports.encodeReplacementPattern = void 0;
-const utils_1 = require("@0x/utils");
+const bignumber_js_1 = require("bignumber.js");
 const ethABI = require("ethereumjs-abi");
 const wyvern_js_1 = require("wyvern-js");
 const types_1 = require("./types");
@@ -33,11 +33,11 @@ const encodeAtomicizedSell = (schema, assets, address, atomicizer) => {
             calldata,
             abi: schema.functions.transfer(asset),
             address: target,
-            value: new utils_1.BigNumber(0),
+            value: new bignumber_js_1.BigNumber(0),
         };
     });
     const atomicizedCalldata = atomicizer
-        .atomicize(transactions.map(t => t.address), transactions.map(t => t.value), transactions.map(t => new utils_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
+        .atomicize(transactions.map(t => t.address), transactions.map(t => t.value), transactions.map(t => new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
     transactions.map(t => t.calldata).reduce((x, y) => {
         return x + y.slice(2);
     }))
@@ -56,11 +56,11 @@ const encodeAtomicizedBuy = (schema, assets, address, atomicizer) => {
             calldata,
             abi: schema.functions.transfer(asset),
             address: target,
-            value: new utils_1.BigNumber(0),
+            value: new bignumber_js_1.BigNumber(0),
         };
     });
     const atomicizedCalldata = atomicizer
-        .atomicize(transactions.map(t => t.address), transactions.map(t => t.value), transactions.map(t => new utils_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
+        .atomicize(transactions.map(t => t.address), transactions.map(t => t.value), transactions.map(t => new bignumber_js_1.BigNumber((t.calldata.length - 2) / 2)), // subtract 2 for '0x', divide by 2 for hex
     transactions.map(t => t.calldata).reduce((x, y) => {
         return x + y.slice(2);
     }))
