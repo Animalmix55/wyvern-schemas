@@ -52,6 +52,6 @@
     "bignumber.js": "9.0.2"
   },
   "peerDependencies": {
-    "wyvern-js": "git+https://github.com/ProjectOpenSea/wyvern-js.git#d283749f3d983a9c9e2e4da925441f75e170c9f0"
+    "wyvern-js": "git+https://github.com/ProjectOpenSea/wyvern-js.git#7429b1f2dd123f012cae1f3144a069e91ecd0682"
   }
 }
