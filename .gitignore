@@ -2,3 +2,7 @@ node_modules/
 yarn-error.log
 .env
 .DS_Store
+
+.yarn/*
+!.yarn/cache
+!.yarn/releases
